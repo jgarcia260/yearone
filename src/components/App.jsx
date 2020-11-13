@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 const axios = require('axios');
 
+import MovieList from './MovieList.jsx';
+
 export default () => {
   const [movies, setMovies] = useState([]);
 
@@ -15,6 +17,7 @@ export default () => {
   return (
     <div>
       <h1>Hello World</h1>
+      <MovieList movies={movies} />
     </div>
   )
 };
