@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.img {
+  height: 70%;
+  width: 80%;
+  margin: 0;
+  object-fit: contain;
+}
+
+.text {
+  color: #ffffff;
+  padding-bottom: 4px;
+  // margin-bottom: 3px;
+}
