@@ -13,7 +13,6 @@ persist data if a movie title is liked/ disliked
 FRONTEND tech: webpack, babel, react, axios
 allows a user to search for a movie title, click on that movie title for more information, and give that movie a thumbs up or thumbs down.
 
-
 Components: App (state), SearchBar, MovieList, Movie
 
 TODO
