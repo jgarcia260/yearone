@@ -1,10 +1,13 @@
 .container {
   display: flex;
   justify-content: space-between;
-  border: 2px solid #480612;
+  // border: 2px solid #937a52;
+  border: 2px solid #20639b;
   border-radius: 15px 50px 30px;
-  padding: 2px;
-  margin-bottom: 3px;
+  // background-color: #937a52;
+  background-color: #ffffff;
+  padding: 10px;
+  margin-bottom: 7px;
 }
 
 .title {
@@ -12,7 +15,6 @@
   flex: 1;
   align-items: center;
   text-align: center;
-
 }
 
 .description {

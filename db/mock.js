@@ -6,7 +6,7 @@
 
 let movies = [
   {
-    'title': 'movie1',
+    'title': 'Avengers',
     'director': 'me',
     'release_year': '2020-11-14',
     'description': 'movie1 desc',
@@ -14,7 +14,7 @@ let movies = [
     'downvotes': 0,
   },
   {
-    'title': 'movie2',
+    'title': 'Pokemon',
     'director': 'me',
     'release_year': '2020-11-14',
     'description': 'movie2 desc',
@@ -22,7 +22,7 @@ let movies = [
     'downvotes': 0,
   },
   {
-    'title': 'movie3',
+    'title': 'Django',
     'director': 'me',
     'release_year': '2020-11-14',
     'description': 'movie3 desc',
@@ -30,7 +30,7 @@ let movies = [
     'downvotes': 0,
   },
   {
-    'title': 'movie4',
+    'title': 'Beetlejuice',
     'director': 'me',
     'release_year': '2020-11-14',
     'description': 'movie4 desc',
@@ -38,7 +38,15 @@ let movies = [
     'downvotes': 0,
   },
   {
-    'title': 'movie5',
+    'title': 'Knives Out',
+    'director': 'me',
+    'release_year': '2020-11-14',
+    'description': 'movie5 desc',
+    'upvotes': 0,
+    'downvotes': 0,
+  },
+  {
+    'title': 'Parasite',
     'director': 'me',
     'release_year': '2020-11-14',
     'description': 'movie5 desc',
