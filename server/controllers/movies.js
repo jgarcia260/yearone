@@ -5,20 +5,21 @@ const APIKEY = require('../keys.js');
 module.exports = {
   getTrendingMovies: (callback) => {
     axios.get(`https://api.themoviedb.org/3/trending/movie/week?api_key=${APIKEY}`)
-      .then(({ data }) => {
+      .then((data) => {
         let movies = [];
-        for (let movie of data) {
+        for (let movie of data.data.results) {
           let { original_title, backdrop_path, vote_average, title, poster_path, overview } = movie
+          let picPath = 'https://image.tmdb.org/t/p/original'
           movies.push({
             title: title || original_title || 'movie title',
-            poster_path: poster_path || backdrop_path || '',
+            poster_path: picPath + poster_path || picPath + backdrop_path || '',
             vote_average: vote_average || 'unavailable'
           })
         }
         callback(null, movies);
       })
       .catch((err) => {
-        callback(err);
+        callback('error');
       })
   },
   getMovie: (query, callback) => {

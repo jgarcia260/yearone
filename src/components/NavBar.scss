@@ -1,0 +1,26 @@
+.container {
+  height: 200px;
+  display: flex;
+  margin-bottom: 5px;
+  border-radius: 1px;
+  background-color: #20639b;
+}
+
+.arrowContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.arrow {
+  cursor: pointer;
+  display: block;
+  // fill: #ffffff;
+  height: 30px;
+  width: 30px;
+  stroke: currentcolor;
+  stroke-width: 5.33333;
+  overflow: visible;
+}

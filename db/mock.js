@@ -1,9 +1,3 @@
-// Title
-// Director
-// Release Year
-// Description(if your API provides it)
-// Ability to thumbs up or thumbs down the movie(see below)
-
 let movies = [
   {
     'title': 'Avengers',
@@ -12,6 +6,8 @@ let movies = [
     'description': 'movie1 desc',
     'upvotes': 0,
     'downvotes': 0,
+    "vote_average": 10,
+    "poster_path": './images/mountain1.jpg'
   },
   {
     'title': 'Pokemon',
@@ -20,6 +16,8 @@ let movies = [
     'description': 'movie2 desc',
     'upvotes': 0,
     'downvotes': 0,
+    "vote_average": 4,
+    "poster_path": './images/mountain1.jpg'
   },
   {
     'title': 'Django',
@@ -28,6 +26,8 @@ let movies = [
     'description': 'movie3 desc',
     'upvotes': 0,
     'downvotes': 0,
+    "vote_average": 2,
+    "poster_path": './images/mountain1.jpg'
   },
   {
     'title': 'Beetlejuice',
@@ -36,6 +36,8 @@ let movies = [
     'description': 'movie4 desc',
     'upvotes': 0,
     'downvotes': 0,
+    "vote_average": 1,
+    "poster_path": './images/mountain1.jpg'
   },
   {
     'title': 'Knives Out',
@@ -44,6 +46,9 @@ let movies = [
     'description': 'movie5 desc',
     'upvotes': 0,
     'downvotes': 0,
+    "vote_average": 4,
+    "poster_path": './images/mountain1.jpg'
+
   },
   {
     'title': 'Parasite',
@@ -52,6 +57,8 @@ let movies = [
     'description': 'movie5 desc',
     'upvotes': 0,
     'downvotes': 0,
+    "vote_average": 5,
+    "poster_path": './images/mountain1.jpg'
   },
 ];
 

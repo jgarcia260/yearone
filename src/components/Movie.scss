@@ -1,13 +1,13 @@
 .container {
   display: flex;
   justify-content: space-between;
-  // border: 2px solid #937a52;
   border: 2px solid #20639b;
   border-radius: 15px 50px 30px;
-  // background-color: #937a52;
   background-color: #ffffff;
   padding: 10px;
   margin-bottom: 7px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .title {
