@@ -1,5 +1,4 @@
 .container {
-  cursor: pointer;
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
@@ -7,10 +6,31 @@
 }
 
 .title {
+  cursor: pointer;
   flex: 1;
+  align-items: center;
   text-align: center;
+
 }
 
 .description {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.info {
+  margin: 0;
+  padding: 0;
+  margin-right: 4px;
+}
+
+.votes {
+  color: red;
+}
+
+.votebtn {
+  display: flex;
 }
