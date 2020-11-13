@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+const axios = require('axios');
 import styles from './Movie.scss';
 
 export default ({ title, director, release_year, description, upvotes, downvotes }) => {

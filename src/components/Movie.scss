@@ -1,8 +1,10 @@
 .container {
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
-  margin-bottom: 2px;
+  border: 2px solid #480612;
+  border-radius: 15px 50px 30px;
+  padding: 2px;
+  margin-bottom: 3px;
 }
 
 .title {
