@@ -14,4 +14,10 @@ FRONTEND tech: webpack, babel, react, axios
 allows a user to search for a movie title, click on that movie title for more information, and give that movie a thumbs up or thumbs down.
 
 
-Components: App (state), SearchBar, MovieList, Movie,
+Components: App (state), SearchBar, MovieList, Movie
+
+TODO
+Create Mock Data
+Build Server API
+Build Front End => App - Movie - MovieList - SearchBar
+Connect Movie API instead of mock
