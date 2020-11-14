@@ -9,7 +9,7 @@ import NavBar from './NavBar.jsx';
 
 export default () => {
   const [navMovies, setNavMovies] = useState([]);
-  const [movies, setMovies] = useState(moviesData);
+  const [movies, setMovies] = useState([]);
   //get top 10 latest movies
   useEffect(() => {
     axios.get('/movies')
@@ -18,11 +18,19 @@ export default () => {
         setNavMovies(data.data);
       })
       .catch(console.log)
-    // setMovies(moviesData)
   }, [])
 
   const searchHandler = (movieTitle) => {
     movieTitle = movieTitle.toLowerCase();
+    axios.get(`/movies/query/${movieTitle}`)
+      .then(({ data }) => {
+        if (!data.length) {
+          return;
+        }
+        console.log(data[0])
+        setMovies(data);
+      })
+      .catch(console.log)
   };
 
   return (

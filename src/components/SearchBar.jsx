@@ -6,14 +6,12 @@ export default ({ searchHandler }) => {
   const [searchText, setSearchText] = useState('');
 
   const changeHandler = (e) => {
-    console.log(e.target.value);
     setSearchText(e.target.value);
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log('search this movie', searchText)
-    // searchHandler(searchText);
+    searchHandler(searchText);
   };
 
   return (

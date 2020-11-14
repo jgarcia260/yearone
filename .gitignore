@@ -3,4 +3,4 @@ node_modules
 package-lock.json
 
 #api keys
-server/keys.js
+server/config/keys.js

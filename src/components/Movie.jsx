@@ -2,12 +2,21 @@ import React, { useState } from 'react';
 const axios = require('axios');
 import styles from './Movie.scss';
 
-export default ({ title, director, release_year, description, upvotes, downvotes }) => {
+export default ({ id, title, release_year, description, upvotes, downvotes }) => {
   const [isShowingDetails, setShowDetails] = useState(false);
   const [upvote, setUpvote] = useState(upvotes);
   const [downvote, setDownvote] = useState(downvotes);
+  const [director, setDirector] = useState('Unavailable');
 
   const clickHandler = () => {
+    if (director === 'Unavailable') {
+      console.log(id);
+      axios.get(`/movies/director/${id}`)
+        .then(({ data }) => {
+          setDirector(data);
+        })
+        .catch(console.log)
+    }
     setShowDetails(!isShowingDetails);
   };
 
@@ -25,8 +34,8 @@ export default ({ title, director, release_year, description, upvotes, downvotes
       <h2 onClick={clickHandler} className={styles.title}>{title}</h2>
       {!isShowingDetails ? null
         : (<div className={styles.description}>
-          <p className={styles.info}>Director: {director}</p>
           <p className={styles.info}>Release Year: {release_year}</p>
+          <p className={styles.info}>Director: {director}</p>
           <p className={styles.info}>Description: {description}</p>
           <div className={styles.votes}>
             <div className={styles.votebtn}>
