@@ -3,18 +3,20 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  overflow: hidden;
   align-items: center;
 }
 
 .img {
-  height: 70%;
-  width: 80%;
-  margin: 0;
+  height: 60%;
+  width: 60%;
   object-fit: contain;
 }
 
 .text {
   color: #ffffff;
   padding-bottom: 4px;
+  margin-top: 3px;
+  font-size: 12px;
   // margin-bottom: 3px;
 }

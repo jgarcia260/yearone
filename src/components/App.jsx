@@ -13,9 +13,8 @@ export default () => {
   //get top 10 latest movies
   useEffect(() => {
     axios.get('/movies')
-      .then((data) => {
-        console.log(data);
-        setNavMovies(data.data);
+      .then(({ data }) => {
+        setNavMovies(data);
       })
       .catch(console.log)
   }, [])

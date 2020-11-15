@@ -1,6 +1,7 @@
 const axios = require('axios');
 const db = require('../../db/index.js');
 const APIKEY = require('../config/keys.js');
+let counter = 0;
 
 module.exports = {
   getTrendingMovies: (callback) => {
@@ -10,11 +11,12 @@ module.exports = {
         for (let movie of data.data.results) {
           let { original_title, backdrop_path, vote_average, title, poster_path, overview, id } = movie
           let picPath = 'https://image.tmdb.org/t/p/original'
+          counter += 1;
           movies.push({
+            id: id,
             title: title || original_title || 'movie title',
             poster_path: picPath + poster_path || picPath + backdrop_path || '',
             vote_average: vote_average || 'unavailable',
-            id
           })
         }
         callback(null, movies);
@@ -48,7 +50,9 @@ module.exports = {
             id,
             title: title || original_title,
             description: overview,
-            release_year: release_date.slice(0, 4) || 'Unavailable'
+            release_year: release_date.slice(0, 4) || 'Unavailable',
+            upvotes: db[id] ? db[id].upvotes : 0,
+            downvotes: db[id] ? db[id].downvotes : 0,
           }
           return movieData;
         });
