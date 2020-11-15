@@ -5,7 +5,7 @@ import NavBarMovie from './NavBarMovie.jsx';
 
 export default ({ movies }) => {
   const [start, setStart] = useState(0)
-  const [end, setEnd] = useState(5)
+  const [end, setEnd] = useState(6)
 
   const leftClick = () => {
     if (0 < start) {
@@ -28,11 +28,11 @@ export default ({ movies }) => {
   return (
     <div className={styles.container}>
       <div className={styles.arrowContainer} onClick={leftClick}>
-        {leftArrow}
+        {/* {leftArrow} */}
       </div>
       {movies.slice(start, end).map(({ title, vote_average, poster_path }) => (<NavBarMovie title={title} vote_average={vote_average} poster_path={poster_path} key={title} />))}
       <div className={styles.arrowContainer} onClick={rightClick}>
-        {rightArrow}
+        {/* {rightArrow} */}
       </div>
     </div>
   )

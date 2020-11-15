@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 const axios = require('axios');
 import styles from './Movie.scss';
 
@@ -10,7 +10,6 @@ export default ({ id, title, release_year, description, upvotes, downvotes }) =>
 
   const clickHandler = () => {
     if (director === 'Unavailable') {
-      console.log(id);
       axios.get(`/movies/director/${id}`)
         .then(({ data }) => {
           setDirector(data);
@@ -23,9 +22,17 @@ export default ({ id, title, release_year, description, upvotes, downvotes }) =>
   const voteHandler = (e) => {
     e.preventDefault();
     if (e.target.name === 'upvote') {
-      setUpvote(upvote + 1);
+      axios.post(`/likes/${id}`, { voteType: 'upvote' })
+        .then(() => {
+          setUpvote(upvote + 1);
+        })
+        .catch(console.log)
     } else {
-      setDownvote(downvote - 1);
+      axios.post(`/likes/${id}`, { voteType: 'downvote' })
+        .then(() => {
+          setDownvote(downvote - 1);
+        })
+        .catch(console.log)
     }
   }
 
@@ -39,11 +46,11 @@ export default ({ id, title, release_year, description, upvotes, downvotes }) =>
           <p className={styles.info}>Description: {description}</p>
           <div className={styles.votes}>
             <div className={styles.votebtn}>
-              <p className={styles.info} >Thumbs Up</p>
+              <p className={styles.info} >Thumbs Up: </p>
               <button onClick={voteHandler} name="upvote">{upvote}</button>
             </div>
             <div className={styles.votebtn}>
-              <p className={styles.info}>Thumbs Down</p>
+              <p className={styles.info}>Thumbs Down: </p>
               <button onClick={voteHandler} name="downvote">{downvote}</button>
             </div>
           </div>
