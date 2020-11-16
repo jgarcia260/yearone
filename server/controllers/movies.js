@@ -1,24 +1,21 @@
 const axios = require('axios');
 const db = require('../../db/index.js');
 const APIKEY = require('../config/keys.js');
-let counter = 0;
 
 module.exports = {
   getTrendingMovies: (callback) => {
     axios.get(`https://api.themoviedb.org/3/trending/movie/week?api_key=${APIKEY}`)
-      .then((data) => {
-        let movies = [];
-        for (let movie of data.data.results) {
-          let { original_title, backdrop_path, vote_average, title, poster_path, overview, id } = movie
-          let picPath = 'https://image.tmdb.org/t/p/original'
-          counter += 1;
-          movies.push({
-            id: id,
-            title: title || original_title || 'movie title',
-            poster_path: picPath + poster_path || picPath + backdrop_path || '',
-            vote_average: vote_average || 'unavailable',
-          })
-        }
+      .then(({ data }) => {
+        data = data || [];
+        let movies = data.results.map((movie) => {
+          let { id, original_title, title, poster_path, backdrop_path, vote_average } = movie;
+          const picturePath = 'https://image.tmdb.org/t/p/original';
+          title = title || original_title || 'movie title';
+          poster_path = `${picturePath}${poster_path}` || `${picturePath}${backdrop_path}` || '#';
+          vote_average = vote_average || 'N/A';
+          return { id, title, poster_path, vote_average }
+        })
+
         callback(null, movies);
       })
       .catch((err) => {
@@ -26,7 +23,7 @@ module.exports = {
       })
   },
   getMovieDirector: function (movieId, callback) {
-    console.log('its coming in here', movieId)
+    console.log('movieId', movieId)
     axios(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${APIKEY}`)
       .then(({ data }) => {
         for (let crew of data.crew) {
@@ -46,15 +43,12 @@ module.exports = {
         let { results } = data;
         let movies = results.map((movie) => {
           let { id, original_title, title, overview, release_date } = movie;
-          let movieData = {
-            id,
-            title: title || original_title,
-            description: overview,
-            release_year: release_date.slice(0, 4) || 'Unavailable',
-            upvotes: db[id] ? db[id].upvotes : 0,
-            downvotes: db[id] ? db[id].downvotes : 0,
-          }
-          return movieData;
+          title = title || original_title || 'N/A'
+          description = overview || 'N/A';
+          release_year = release_date.slice(0, 4) || 'N/A';
+          upvotes = db[id] ? db[id].upvotes : 0;
+          downvotes = db[id] ? db[id].downvotes : 0;
+          return { id, title, description, release_year, upvotes, downvotes };
         });
         callback(null, movies);
       })
@@ -62,5 +56,4 @@ module.exports = {
         callback(err);
       })
   },
-
 }
