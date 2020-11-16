@@ -17,7 +17,6 @@ module.exports = {
         downvotes: 0,
       }
     }
-    console.log(moviesData)
     moviesData[movie_id].downvotes -= 1;
     callback(null, moviesData[movie_id].downvotes);
   }
